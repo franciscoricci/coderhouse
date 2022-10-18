@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table, th, td {
+    border:1px solid black;
+    }
+</style>
+<table>
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha Nacimiento</th>
+      <th>Documento</th>
+    </tr>
+    {% if persona_list %}
+        {% for persona in persona_list %}
+            <tr>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.fecha_nacimiento }}</td>
+            <td>{{ persona.documento }}</td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+  </table>
