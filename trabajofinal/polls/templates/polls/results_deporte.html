@@ -1,0 +1,9 @@
+<p>Estamos buscando a: {{nombre}}</p>
+{% if deporte_list %}
+<ul>
+  {% for deporte in deporte_list %}
+    <li>{{deporte.nombredeporte}}</li>
+    <li>{{deporte.division}}</li>
+  {% endfor %}
+</ul>
+{% endif %}

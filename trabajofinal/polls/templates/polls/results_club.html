@@ -1,0 +1,9 @@
+<p>Estamos buscando a: {{nombre}}</p>
+{% if club_list %}
+<ul>
+  {% for club in club_list %}
+    <li>{{club.nombreclub}}</li>
+    <li>{{club.pais}}</li>
+  {% endfor %}
+</ul>
+{% endif %}

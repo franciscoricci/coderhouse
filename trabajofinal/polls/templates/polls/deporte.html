@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table, th, td {
+    border:1px solid black;
+    }
+</style>
+<table>
+    <tr>
+      <th>Deporte</th>
+      <th>Division</th>
+    </tr>
+    {% if deporte_list %}
+        {% for deporte in deporte_list %}
+            <tr>
+            <td>{{ deporte.nombredeporte }}</td>
+            <td>{{ deporte.division }}</td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+  </table>

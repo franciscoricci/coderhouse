@@ -1,0 +1,9 @@
+<p>Estamos buscando a: {{nombre}}</p>
+{% if persona_list %}
+<ul>
+  {% for persona in persona_list %}
+    <li>{{persona.nombre}}</li>
+    <li>{{persona.fechadenacimiento}}</li>
+  {% endfor %}
+</ul>
+{% endif %}
