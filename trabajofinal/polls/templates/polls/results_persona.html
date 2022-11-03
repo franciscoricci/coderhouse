@@ -1,7 +1,4 @@
-{% extends 'polls/base.html' %}
-
-
-{% block content0 %}Lista de Personas{% endblock %}
+{% extends 'polls/results.html' %}
 
 {% block content %}
     <tr>
@@ -16,7 +13,7 @@
             </tr>
         {% endfor %}
     {% else %}
-        <p>No polls are available.</p>
+        <p>No se encontro la persona.</p>
     {% endif %}
 {% endblock %}
 
@@ -24,7 +21,7 @@
 <form action="/buscar/" method="GET">
     <div class="mb-3"></div>
       <label for="personaInput" class="form-label">Buscar: </label>
-      <input id="nombre" name="nombre" type="text" placeholder="Ex: Juan">
+      <input id="nombre" name="nombre" type="text" placeholder="Nombre...">
     </div>
     <button type="submit" class="btn btn-primary">Buscar</button>
   </form>

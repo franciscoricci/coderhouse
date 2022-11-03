@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-<style>
-    table, th, td {
-    border:1px solid black;
-    }
-</style>
-<table>
+{% extends 'polls/base.html' %}
+
+{% block content0 %}Lista de Deportes{% endblock %}
+
+{% block content %}
     <tr>
       <th>Deporte</th>
       <th>Division</th>
@@ -20,4 +17,14 @@
     {% else %}
         <p>No polls are available.</p>
     {% endif %}
-  </table>
+{% endblock %}
+
+{% block content2 %}
+<form action="/buscard/" method="GET">
+    <div class="mb-3"></div>
+      <label for="deporteInput" class="form-label">Buscar: </label>
+      <input id="nombredeporte" name="nombredeporte" type="text" placeholder="Ex: Rugby">
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+{% endblock %}

@@ -1,9 +1,28 @@
-<p>Estamos buscando a: {{nombre}}</p>
-{% if club_list %}
-<ul>
-  {% for club in club_list %}
-    <li>{{club.nombreclub}}</li>
-    <li>{{club.pais}}</li>
-  {% endfor %}
-</ul>
-{% endif %}
+{% extends 'polls/results.html' %}
+
+{% block content %}
+    <tr>
+      <th scope="col">Club</th>
+      <th scope="col">Pais</th>
+    </tr>
+    {% if club_list %}
+        {% for club in  club_list %}
+            <tr>
+            <td>{{ club.nombreclub }}</td>
+            <td>{{ club.pais }}</td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <p>No se encontro el club.</p>
+    {% endif %}
+{% endblock %}
+
+{% block content2 %}
+<form action="/buscarc/" method="GET">
+    <div class="mb-3"></div>
+      <label for="clubInput" class="form-label">Buscar: </label>
+      <input id="nombreclub" name="nombreclub" type="text" placeholder="Ex: Liceo">
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+{% endblock %}

@@ -1,9 +1,28 @@
-<p>Estamos buscando a: {{nombre}}</p>
-{% if deporte_list %}
-<ul>
-  {% for deporte in deporte_list %}
-    <li>{{deporte.nombredeporte}}</li>
-    <li>{{deporte.division}}</li>
-  {% endfor %}
-</ul>
-{% endif %}
+{% extends 'polls/results.html' %}
+
+{% block content %}
+    <tr>
+      <th scope="col">Deporte</th>
+      <th scope="col">Division</th>
+    </tr>
+    {% if deporte_list %}
+        {% for deporte in deporte_list %}
+            <tr>
+            <td>{{ deporte.nombredeporte }}</td>
+            <td>{{ deporte.division }}</td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <p>No se encontro el deporte.</p>
+    {% endif %}
+{% endblock %}
+
+{% block content2 %}
+<form action="/buscard/" method="GET">
+    <div class="mb-3"></div>
+      <label for="deporteInput" class="form-label">Buscar: </label>
+      <input id="nombredeporte" name="nombredeporte" type="text" placeholder="Ex: Rugby">
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+{% endblock %}

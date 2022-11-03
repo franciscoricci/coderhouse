@@ -7,6 +7,12 @@ from django.views.generic import TemplateView, ListView
 from django.db.models import Q
 
 
+# def index(request):
+#     context = {
+#         'leyenda': "Este es el Home"
+#     }
+#     template = loader.get_template('polls/home.html')
+#     return HttpResponse(template.render(context, request))
 
 def ver_persona(request):
     persona_list = Persona.objects.all()
@@ -45,25 +51,25 @@ def mostrarformulario(request):
         form = Formulario()
         form1 = Formulario_deporte(request.POST)
         form2 = Formulario_club(request.POST)
-    return render(request, 'polls/formulario1.html', {'form': form, 'form1': form1, 'form2': form2})
+    return render(request, 'polls/home.html', {'form': form, 'form1': form1, 'form2': form2})
 
-def buscar_persona(request):
-    return render(request, "polls/buscar_persona.html")
+# def buscar_persona(request):
+#     return render(request, "polls/buscar_persona.html")
 
 def buscar(request):
     
     if request.GET['nombre']:
         nombre = request.GET['nombre']
         persona_list = Persona.objects.filter(nombre__icontains=nombre)
-        return render(request, "polls/results.html", {"persona_list": persona_list, "nombre":nombre})
+        return render(request, "polls/results_persona.html", {"persona_list": persona_list, "nombre":nombre})
 
     else:
         respuesta = "No enviaste datos"
 
     return render(request, "polls/results.html", {"respuesta": respuesta})
 
-def buscar_deporte(request):
-    return render(request, "polls/buscar_deporte.html")
+# def buscar_deporte(request):
+#     return render(request, "polls/buscar_deporte.html")
 
 def buscard(request):
     
@@ -77,8 +83,8 @@ def buscard(request):
 
     return render(request, "polls/results_deporte.html", {"respuesta": respuesta})
 
-def buscar_club(request):
-    return render(request, "polls/buscar_club.html")
+# def buscar_club(request):
+#     return render(request, "polls/buscar_club.html")
 
 def buscarc(request):
     

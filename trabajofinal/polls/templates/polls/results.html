@@ -1,9 +1,14 @@
-<p>Estamos buscando a: {{nombre}}</p>
-{% if persona_list %}
-<ul>
-  {% for persona in persona_list %}
-    <li>{{persona.nombre}}</li>
-    <li>{{persona.fechadenacimiento}}</li>
-  {% endfor %}
-</ul>
-{% endif %}
+<!DOCTYPE html>
+{% extends 'polls/base.html' %}
+
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+
+{% bootstrap_javascript %}
+
+{% bootstrap_messages %}
+
+<table class="table table-hover table-striped table-bordered">
+  {% block content %}{% endblock %}
+</table>
