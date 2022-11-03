@@ -1,5 +1,5 @@
 1° Ingresar en http://127.0.0.1:8000/ (esto dirigira al home de la pagina, donde aparecera un formulario para cargar datos nuevos).
-2° Cargar datos en el formulario y luego presionar cargar. Esto cargara los datos ingresados en la base de datos.
+2° Cargar datos en el formulario y luego presionar agregar. Esto cargara los datos ingresados en la base de datos.
     Ejemplo:
         Nombre: Francisco
         Fecha de Nacimiento: 1999-08-06
