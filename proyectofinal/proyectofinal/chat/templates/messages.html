@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content0 %}
+
+    <a href="write">Enviar un mensaje</a>
+
+{% endblock %}
+
+{% block content %}
+
+    {% if msgs %}
+        	{% for msg in msgs %}
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ msg.sender }} envió: </h5>
+                        <small>{{ msg.fecha }}</small>
+                    </div>
+                    <p class="mb-1">{{ msg.content }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+    {% else %}
+        <h3>No hay mensajes!</h3>
+    {% endif %}
+{% endblock %}

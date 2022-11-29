@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if post %}
+        <tr><td><p style="color:grey">Titulo</p>{{ post.titulo }}</td></tr>
+        <tr><td><p style="color:grey">Subtitulo</p>{{ post.subtitulo }}</td></tr>
+        <tr><td><p style="color:grey">Cuerpo</p>{{ post.cuerpo }}</td></tr>
+        {% if post.imagen %}
+            <img src="{{ post.imagen.url }}" alt="">
+        {% endif %}
+        {% if user.is_superuser %}
+            <tr><td><a style="color:red" href="{% url 'delete_post' post.id %}">Delete</a></td></tr>
+        {% endif %}
+    {% endif %}
+{% endblock %}

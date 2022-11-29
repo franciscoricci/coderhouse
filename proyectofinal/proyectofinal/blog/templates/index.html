@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content0 %}
+    {% if user.is_authenticated %}
+        <div>Este es el Feed</div>
+        <button type="button" class="btn btn-light"><a href="post">Subir post</a></button>
+    {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+    {% if posts_list %}
+        {%for post in posts_list %}
+        <tr>
+            <td>
+                <h3>{{ post.titulo }}</h3>
+                <h5>{{ post.subtitulo }}</h5>
+                <p style="color:grey"> {{ post.autor }} </p>
+                <a style="color:grey" href="{% url 'ver_post' post.id %}">Ver mas...</a>
+                <div style="color:grey">{{post.fecha}}</div>
+                {% if user.is_superuser %}
+                    <a style="color:red" href="{% url 'delete_post' post.id %}">Delete</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        <h4>No hay posts aun!</h4>
+    {% endif %}
+{% endblock %}

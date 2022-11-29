@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+
+{% bootstrap_javascript %}
+
+{% bootstrap_messages %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'homepage' %}">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="{% url 'list_messages' %}">Mensajes</a>
+          <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto">
+          {% if user.is_authenticated %}
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'users-profile' %}">Welcome, {{user.username}}</a>
+          </li>
+    
+          {% else %}
+    
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+    
+          {% endif %}
+        </ul>
+      </div>
+</nav>
+
+<div class="fs-4 fw-bold">
+    {% block content0 %}{% endblock %}
+</div>
+
+<div class="card">
+    {% block formulario %}{% endblock %}
+</div>
+
+<table class="table table-hover table-striped table-bordered">
+    {% block content %}{% endblock %}
+</table>
+
+<div>
+    {% block content2 %}{% endblock %}
+</div>
+

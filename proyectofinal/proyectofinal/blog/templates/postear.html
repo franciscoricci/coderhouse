@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}      
+
+
+<!--Login--> 
+<div class="container py-5">
+  <h2>Postear</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ post_form.as_p }}
+    <button class="btn btn-primary" type="submit">Subir</button>
+  </form>
+</div>
+
+{% endblock %}
